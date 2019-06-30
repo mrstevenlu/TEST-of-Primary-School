@@ -8,16 +8,25 @@
 # 小学试卷
 import random
 
-print("----小学四则运算题----")
 
+print("----小学四则运算题----")
+filename = "TEST of Primary School.txt"
+
+f = open(filename, 'w')  # write 方式第一次写一行
+text2write = "----开始出题目----\n"
+f.write(text2write)
+
+f.close()
+
+f = open(filename,'a')
 count=0
 
 #for i in range(1,100):
     #count=count+1
 
-for row in range(1,10001):
+for row in range(1,21):
     line1= ''
-    for col in range(1,10001):
+    for col in range(1,6):
         count =count + 1
 
 
@@ -48,6 +57,15 @@ for row in range(1,10001):
         # print('现在打印第{0}行-第{1}列-第{2}道数学题'.format(row,col,count))
 
     print(line1)
+    text2write = line1 + '\n'
+    f.write(text2write)
     #print("\n")
-
 print("----结束----总共出了{0}道四则运算题".format(count))
+
+
+text2write="----结束----总共出了{0}道四则运算题".format(count)
+
+f.write(text2write)
+
+
+f.close()
